@@ -1,0 +1,24 @@
+name: 01 - Building Blocks
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+    echo-hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo
+              run: echo "Hello World"  
+    echo2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: failed step
+
+              run: echo "i will fail" && exit 1
+            - name: say goodbye
+              run: echo "i will not run"
+              
