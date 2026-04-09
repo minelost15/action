@@ -1,5 +1,6 @@
 name: 01 - Building Blocks
 on:
+  workflow_dispatch: # allows to trigger workflow manually from github actions tab
   push:
     branches:
       - main
