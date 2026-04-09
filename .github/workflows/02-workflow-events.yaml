@@ -6,6 +6,9 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '*/5 * * * *' # runs every day at midnight
+  workflow_dispatch: # allows to trigger workflow manually from github actions tab
 
 jobs:
     echo-hello:
