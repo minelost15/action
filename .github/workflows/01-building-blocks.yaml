@@ -18,7 +18,7 @@ jobs:
         steps:
             - name: failed step
 
-              run: echo "i will fail" && exit 0
+              run: echo "i will fail" && exit 1
             - name: say goodbye
               run: echo "i will not run"
               
