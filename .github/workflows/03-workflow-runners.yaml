@@ -1,0 +1,18 @@
+name: 03-workflow-runners
+on:
+  workflow_dispatch: # allows to trigger workflow manually from github actions tab
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ubuntu-echo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: show os
+      run: |
+            echo "This job is running on an Ubuntu runner."
+            echo "OS: $(uname -s)" "Runner: $RUNNER_OS"
