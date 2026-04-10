@@ -15,4 +15,4 @@ jobs:
     - name: show os
       run: |
             echo "This job is running on an Ubuntu runner."
-            echo "OS: $(uname -s)" "Runner: $RUNNER_OS"
+            echo "OS: $(uname " "Runner: $RUNNER_OS"
