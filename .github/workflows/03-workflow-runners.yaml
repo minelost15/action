@@ -22,5 +22,5 @@ jobs:
     - name: show os
       shell: bash
       run: |
-            echo "This job is running on a Windows runner {{os.version}}."
+            echo "This job is running on a Windows runner {{runner.os}}."
             echo "OS: $(ver)" "Runner: $RUNNER_OS"
