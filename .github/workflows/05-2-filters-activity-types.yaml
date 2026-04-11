@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo
-        run: echo "i'am running on pull request is closed event ${{ github.event_name}} event with activity type ${{ github.event.action}}"
+        run: echo "i'am runng on pull request is closed event ${{ github.event_name}} event with activity type ${{ github.event.action}}"

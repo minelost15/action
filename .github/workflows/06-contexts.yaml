@@ -1,0 +1,34 @@
+name: 06 - Contexts
+on:
+  workflow_dispatch: # allows to trigger workflow manually from github actions tab
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display github context
+        run: |
+          echo "i'am running on ${{ github.event_name }} event with activity type ${{ github.event.action }}"
+          echo "repository name is ${{ github.repository }}"
+          echo "repository owner is ${{ github.repository_owner }}"
+          echo "workflow name is ${{ github.workflow }}"
+          echo "actor is ${{ github.actor }}"
+          echo "ref is ${{ github.ref }}"
+          echo "sha is ${{ github.sha }}"
+          echo "run number is ${{ github.run_number }}"
+          echo "run id is ${{ github.run_id }}"
+          echo "job name is ${{ github.job }}"
+          echo "head ref is ${{ github.head_ref }}"
+          echo "base ref is ${{ github.base_ref }}"
+          echo "event path is ${{ github.event_path }}"
+          echo "workspace is ${{ github.workspace }}"
+      - name: display env context
+        run: echo "my name is $NAME and i'am learning github actions"
+        
+
