@@ -14,5 +14,5 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
             - name: Printing node version
-              run: /workflows/ls
+              run: ls
            
