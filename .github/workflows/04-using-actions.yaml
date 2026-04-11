@@ -8,14 +8,13 @@ on:
     branches:
       - main
 jobs:
-    default:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Example step
-              run: echo "Default job running"
-              working-directory: .github/workflows/04-using-actions/react-app
+
     build:
+
         runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: .github/workflows/04-using-actions/react-app
         steps:  
             - name: Checkout code
               uses: actions/checkout@v4
