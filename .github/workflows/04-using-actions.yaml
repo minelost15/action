@@ -8,6 +8,12 @@ on:
     branches:
       - main
 jobs:
+    default:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Example step
+              run: echo "Default job running"
+              working-directory: .github/workflows/04-using-actions/react-app
     build:
         runs-on: ubuntu-latest
         steps:  
@@ -21,7 +27,8 @@ jobs:
                 node-version: '24.x'
             - name: Install dependencies
               run: npm clean-install
-              working-directory: .github/workflows/04-using-actions/react-app
+            - name: run unit tests
+              run: npm test
 
     
            
