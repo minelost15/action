@@ -1,0 +1,14 @@
+name: 05 - 1 - EVENTS - FILTERS - ACTIVITY TYPES
+on:
+  workflow_dispatch: # allows to trigger workflow manually from github actions tab
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened] # filter pull request events by activity types
+
+jobs:
+  Echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        run: echo "i'am running on pull request event ${{ github.event_name}} event with activity type ${{ github.event.action}}"
