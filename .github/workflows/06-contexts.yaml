@@ -29,6 +29,7 @@ jobs:
           echo "event path is ${{ github.event_path }}"
           echo "workspace is ${{ github.workspace }}"
       - name: display env context
-        run: echo "my name is $NAME and i'am learning github actions"
+
+        run: echo "my name is ${{ vars.NAME }} and i'am learning github actions"
         
 
