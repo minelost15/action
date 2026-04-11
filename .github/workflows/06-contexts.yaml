@@ -1,6 +1,11 @@
 name: 06 - Contexts
+run-name: 06 - Contexts DEBUG - ${{inputs.debug}}
 on:
-  workflow_dispatch: # allows to trigger workflow manually from github actions tab
+  workflow_dispatch: 
+    inputs:
+        debug:
+            type: boolean
+            default: false
   push:
     branches:
       - main
