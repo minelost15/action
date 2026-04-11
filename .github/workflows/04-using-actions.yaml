@@ -21,7 +21,7 @@ jobs:
                 node-version: '24.x'
             - name: Install dependencies
               run: npm cli
-              working-directory: ./actions/04-using-actions/ract-app
+              working-directory: /04-using-actions/ract-app
 
     
            
