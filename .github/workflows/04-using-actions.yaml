@@ -21,7 +21,7 @@ jobs:
                 node-version: '24.x'
             - name: Install dependencies
               run: npm clean-install
-              working-directory: actions/.github/workflows/04-using-actions/react-app
+              working-directory: .github/workflows/04-using-actions/react-app
 
     
            
