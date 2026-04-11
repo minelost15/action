@@ -20,8 +20,8 @@ jobs:
               with:
                 node-version: '24.x'
             - name: Install dependencies
-              run: npm cli
-              working-directory: /04-using-actions/ract-app
+              run: npm clean-install
+              working-directory: actions/04-using-actions/react-app
 
     
            
