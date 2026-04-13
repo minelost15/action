@@ -1,0 +1,27 @@
+name: 09 - Using Functions
+on:
+  workflow_dispatch: # allows to trigger workflow manually from github actions tab
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main            
+jobs:
+  echo1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: failed step
+        run: exit 1
+      - name: I will be skipped 
+        if: ${{ success() }}
+        run: echo "i will be print is previous step succeeded"
+      - name: I will execute
+        if: ${{ failure() }}
+        run: echo "i will be print is previous step failed"
+      - name: I will execute
+        if: ${{ !cancelled() }}
+        run: echo "i will be print is previous step cancelled"
+      - name: I will execute
+        if: ${{ cancelled() }}
+        run: echo "i will be print always"
