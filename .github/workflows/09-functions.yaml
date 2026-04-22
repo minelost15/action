@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: failed step
-        run: exit 1
+        run: exit 0
       - name: I will be skipped 
         if: ${{ success() }}
         run: echo "i will be print is previous step succeeded"
@@ -24,4 +24,4 @@ jobs:
         run: echo "i will be print is previous step cancelled"
       - name: I will execute
         if: ${{ cancelled() }}
-        run: echo "i will be print aways"
+        run: echo "i will be print okß"
