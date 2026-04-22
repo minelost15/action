@@ -16,11 +16,8 @@ jobs:
       - name: print PR labels
         run: |
             cat << 'EOF' 
-            PR labels are: ${{ toJson(github.event.pull_request.labels) }}
+            PR labels are: ${{ toJson(github.event.pull_request.labels 'bug') }}
             EOF
-      - name: bug label exists
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
-        run: echo "bug label exists"  
     
       - name: I will be skipped 
         if: ${{ success() }}
