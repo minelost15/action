@@ -5,7 +5,7 @@ on:
         use-cache:
           description: 'Use cache or not'
           type: boolean
-          default: 'true'
+          default: true
   push:
     branches:
       - main
@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    default:
+    defaults:
       run:
         working-directory: 13-caching/react-app
     steps:
