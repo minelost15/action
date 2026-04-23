@@ -1,0 +1,39 @@
+name: 13 - using caching in github actions
+on:
+  workflow_dispatch: 
+      inputs:
+        use-cache:
+          description: 'Use cache or not'
+          type: boolean
+          default: 'true'
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main 
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    default:
+      run:
+        working-directory: 13-caching/react-app
+    steps:
+      - name: checkout codes
+        uses: actions/checkout@v4
+      - name: use node 24
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24.x
+      - name: install dependencies
+       # if: ${{ github.event.inputs.use-cache = 'true' }}
+        run: npm ci
+      - name: Testing
+        run: npm run est
+      - name: build
+        run: npm run build
+      - name: deploying to np
+        run: echo "deploying to non prod environment"
+
+ 
