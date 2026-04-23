@@ -6,6 +6,15 @@ on:
           description: 'Use cache or not'
           type: boolean
           default: true
+        node-version:
+          description: 'Node version to use'
+          type: choice
+          options:
+            - '16.x'
+            - '18.x'
+            - '20.x' 
+            - '22.x'    
+          default: '24.x'
   push:
     branches:
       - main
@@ -25,7 +34,7 @@ jobs:
       - name: use node 24
         uses: actions/setup-node@v3
         with:
-          node-version: 24.x
+          node-version: ${{ inputs.node-version }}
       - name: install dependencies
        # if: ${{ github.event.inputs.use-cache = 'true' }}
         run: npm ci
