@@ -1,6 +1,21 @@
 name: 17 - using composite actions in github actions
+run-name: 17 -1 - custom composite action | ${{ inputs.target-env }}
 on:
   workflow_dispatch:
+    inputs:
+      target-env:
+        description: '"Dev" or "prod" for the action'
+        type: choice
+        options:
+          - dev
+          - prod
+        default: dev
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main    
 
 env:
   working-directory: .github/workflows/17-custom-actions/react-app
@@ -14,8 +29,9 @@ jobs:
       - name: Setup Node and Cache dependencies
         uses: ./.github/actions/composite-cache-deps
         with:
-          node-version: '20.x'
+          node-version: '24.x'
           working-directory: ${{env.working-directory}}
+          target-env: ${{ inputs.target-env }}
 
       - name: Testing
         run: npm run test
