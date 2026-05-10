@@ -19,10 +19,11 @@ runs:
         node-version: ${{ inputs.node-version }}
 
     - name: Cache npm dependencies
+      id: cache
       uses: actions/cache@v3
       with:
         path: ${{ inputs.working-directory }}/node_modules
-        key: node-modules-${{ hashFiles('${{ inputs.working-directory }}/package-lock.json') }}
+        key: node-modules-${{ hashFiles(format('{0}/package-lock.json', inputs.working-directory)) }}
     - name: Install npm dependencies
       if: ${{ steps.cache.outputs.cache-hit != 'true' }}
       run: npm ci
