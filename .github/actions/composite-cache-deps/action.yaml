@@ -5,7 +5,7 @@ inputs:
   node-version:
     description: 'Node version to use for caching'
     required: true
-    default: '20.x'
+    default: '24.x'
   working-directory:
     description: 'Working directory for caching'
     required: false
